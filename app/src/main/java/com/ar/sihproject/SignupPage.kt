@@ -11,6 +11,10 @@ import android.widget.ProgressBar
 import android.widget.Toast
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseAuthUserCollisionException
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 class SignupPage : AppCompatActivity() {
 
@@ -22,6 +26,7 @@ class SignupPage : AppCompatActivity() {
     lateinit var passwordLayout : TextInputLayout
     lateinit var confirmPasswordLayout : TextInputLayout
     lateinit var progressBar: ProgressBar
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,6 +40,7 @@ class SignupPage : AppCompatActivity() {
         passwordLayout = findViewById(R.id.passwordInputLayout)
         confirmPasswordLayout = findViewById(R.id.confirmPasswordInputLayout)
         progressBar = findViewById(R.id.progressBar)
+        auth = Firebase.auth
 
 
         userName.setOnClickListener {
@@ -66,6 +72,35 @@ class SignupPage : AppCompatActivity() {
             imm?.hideSoftInputFromWindow(v.windowToken, 0)
 
             val checkFields: Boolean = userAuthentication()
+
+            if(checkFields) {
+                progressBar.visibility = View.VISIBLE
+                auth.createUserWithEmailAndPassword(
+                    userName.text.toString(),
+                    password.text.toString()
+                ).addOnCompleteListener(this) { task ->
+                    if (task.isSuccessful) {
+                        progressBar.visibility = View.GONE
+                        Toast.makeText(baseContext, "Authentication Successful.", Toast.LENGTH_SHORT).show()
+
+                        val intent = Intent(this@SignupPage, VisitorAppUI :: class.java)
+                        startActivity(intent)
+                    }
+                    else {
+                        progressBar.visibility = View.GONE
+                        try {
+                            throw task.exception!!
+                        }
+                        catch(error : FirebaseAuthUserCollisionException){
+                            Toast.makeText(this, "This Account Already Exists", Toast.LENGTH_SHORT).show()
+                        }
+                        finally {
+                            Toast.makeText(baseContext, "Authentication failed.", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+                }
+            }
+
         }
     }
 

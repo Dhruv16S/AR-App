@@ -13,6 +13,9 @@ import android.widget.TextView
 import android.widget.Toast
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 class LoginPage : AppCompatActivity() {
 
@@ -23,6 +26,7 @@ class LoginPage : AppCompatActivity() {
     lateinit var userInputLayout : TextInputLayout
     lateinit var passwordInputLayout : TextInputLayout
     lateinit var progressBar : ProgressBar
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,6 +40,7 @@ class LoginPage : AppCompatActivity() {
         passwordInputLayout = findViewById(R.id.passwordInputLayout)
         gotoSignUp = findViewById(R.id.gotoSignUp)
         progressBar = findViewById(R.id.progressBar)
+        auth = Firebase.auth
 
         userName.setOnClickListener {
             userInputLayout.error = null
@@ -63,6 +68,21 @@ class LoginPage : AppCompatActivity() {
             imm?.hideSoftInputFromWindow(v.windowToken, 0)
 
             val checkFields : Boolean = userAuthentication()
+            if(checkFields){
+                progressBar.visibility = View.VISIBLE
+                auth.signInWithEmailAndPassword(userName.text.toString(), userPassword.text.toString())
+                    .addOnCompleteListener(this){task->
+                        if(task.isSuccessful){
+                            progressBar.visibility = View.GONE
+                            val intent = Intent(this@LoginPage, VisitorAppUI :: class.java)
+                            startActivity(intent)
+                        }
+                        else{
+                            progressBar.visibility = View.GONE
+                            Toast.makeText(this, task.exception!!.message, Toast.LENGTH_SHORT).show()
+                        }
+                    }
+            }
         }
     }
     private fun userAuthentication(): Boolean{

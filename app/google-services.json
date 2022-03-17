@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "760401745596",
+    "project_id": "ar-app-b847c",
+    "storage_bucket": "ar-app-b847c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:760401745596:android:81c08948dee1033d21a2b9",
+        "android_client_info": {
+          "package_name": "com.ar.sihproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "760401745596-o7416s3m07m48lp1url8ncctvacnr26b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCL99q-U5yYYMUxRIIag-kHp5t0n2P8ZNk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "760401745596-o7416s3m07m48lp1url8ncctvacnr26b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
