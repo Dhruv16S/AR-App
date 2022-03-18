@@ -8,6 +8,9 @@
         <entry key="..\:/Programming/Kotlin/SIHProject/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Programming/Kotlin/SIHProject/app/src/main/res/layout/activity_signup_page.xml" value="0.1" />
         <entry key="..\:/Programming/Kotlin/SIHProject/app/src/main/res/layout/activity_visitor_app_ui.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_account_details.xml" value="0.22056159420289856" />
+        <entry key="app/src/main/res/layout/activity_manager_app_ui.xml" value="0.22056159420289856" />
+        <entry key="app/src/main/res/layout/activity_signup_page.xml" value="0.2098697607068048" />
       </map>
     </option>
   </component>
