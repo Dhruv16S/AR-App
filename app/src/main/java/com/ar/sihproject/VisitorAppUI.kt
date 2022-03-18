@@ -1,17 +1,9 @@
 package com.ar.sihproject
 
-import android.animation.ValueAnimator
+
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.view.MotionEvent
-import android.view.View
-import android.view.animation.AnticipateOvershootInterpolator
-import android.widget.ImageButton
-import android.widget.LinearLayout
-import android.widget.Toast
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import com.hitomi.cmlibrary.CircleMenu
@@ -36,9 +28,12 @@ class VisitorAppUI : AppCompatActivity() {
         cmMain.setMainMenu(Color.parseColor("#000000"), R.drawable.ic_menu, R.drawable.ic_cancel)
 
         cmMain.addSubMenu(Color.parseColor("#F5DE61"), R.drawable.ic_home)
+        cmMain.addSubMenu(Color.parseColor("#a0cbf1"), R.drawable.ic_info)
+        cmMain.addSubMenu(Color.parseColor("#a0cbf1"), R.drawable.ic_info)
         cmMain.addSubMenu(Color.parseColor("#F56161"), R.drawable.ic_favourite)
         cmMain.addSubMenu(Color.parseColor("#BBF561"), R.drawable.ic_contact)
         cmMain.addSubMenu(Color.parseColor("#a0cbf1"), R.drawable.ic_info)
+
 
         //adding click listeners to menu items
         cmMain.setOnMenuSelectedListener { it ->
@@ -53,7 +48,7 @@ class VisitorAppUI : AppCompatActivity() {
                     fragmentTransactionMaps.commit()
                 }
 
-                1 -> {
+                3 -> {
                     //Toast.makeText(this, "This is Favourites", Toast.LENGTH_SHORT).show()
                     val fragmentManagerFavourites : FragmentManager = supportFragmentManager
                     val fragmentTransactionFavourites : FragmentTransaction = fragmentManagerFavourites.beginTransaction()
@@ -63,7 +58,7 @@ class VisitorAppUI : AppCompatActivity() {
                     fragmentTransactionFavourites.commit()
                 }
 
-                2 -> {
+                4 -> {
                     //Toast.makeText(this, "This is Account", Toast.LENGTH_SHORT).show()
                     val fragmentManagerAccount : FragmentManager = supportFragmentManager
                     val fragmentTransactionAccount : FragmentTransaction = fragmentManagerAccount.beginTransaction()
@@ -73,7 +68,7 @@ class VisitorAppUI : AppCompatActivity() {
                     fragmentTransactionAccount.commit()
                 }
 
-                3 -> {
+                5 -> {
                     //Toast.makeText(this, "This is Scan and View", Toast.LENGTH_SHORT).show()
                     val fragmentManagerScan : FragmentManager = supportFragmentManager
                     val fragmentTransactionScan : FragmentTransaction = fragmentManagerScan.beginTransaction()
@@ -81,6 +76,9 @@ class VisitorAppUI : AppCompatActivity() {
                     fragmentTransactionScan.replace(R.id.frame, scanFragment)
                     fragmentTransactionScan.addToBackStack(null)
                     fragmentTransactionScan.commit()
+                }
+                else->{
+
                 }
             }
         }
