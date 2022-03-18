@@ -3,14 +3,21 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Programming/Kotlin/SIHProject/app/src/main/res/drawable/circle_tile.xml" value="0.1" />
         <entry key="..\:/Programming/Kotlin/SIHProject/app/src/main/res/drawable/submit_button.xml" value="0.161" />
         <entry key="..\:/Programming/Kotlin/SIHProject/app/src/main/res/layout/activity_login_page.xml" value="0.25" />
         <entry key="..\:/Programming/Kotlin/SIHProject/app/src/main/res/layout/activity_main.xml" value="0.1" />
+<<<<<<< HEAD
         <entry key="..\:/Programming/Kotlin/SIHProject/app/src/main/res/layout/activity_signup_page.xml" value="0.1" />
         <entry key="..\:/Programming/Kotlin/SIHProject/app/src/main/res/layout/activity_visitor_app_ui.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_account_details.xml" value="0.22056159420289856" />
         <entry key="app/src/main/res/layout/activity_manager_app_ui.xml" value="0.22056159420289856" />
         <entry key="app/src/main/res/layout/activity_signup_page.xml" value="0.2098697607068048" />
+=======
+        <entry key="..\:/Programming/Kotlin/SIHProject/app/src/main/res/layout/activity_manager_app_ui.xml" value="0.264" />
+        <entry key="..\:/Programming/Kotlin/SIHProject/app/src/main/res/layout/activity_signup_page.xml" value="0.264" />
+        <entry key="..\:/Programming/Kotlin/SIHProject/app/src/main/res/layout/activity_visitor_app_ui.xml" value="0.264" />
+>>>>>>> a849e5684954259512a95ec67b028cc3eb1e9584
       </map>
     </option>
   </component>

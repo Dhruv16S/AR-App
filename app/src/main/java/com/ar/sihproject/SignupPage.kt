@@ -19,6 +19,7 @@ import com.google.firebase.ktx.Firebase
 class SignupPage : AppCompatActivity() {
 
     lateinit var userName : TextInputEditText
+    lateinit var userEmail : TextInputEditText
     lateinit var password : TextInputEditText
     lateinit var confirmPassword : TextInputEditText
     lateinit var signUp : Button
@@ -33,6 +34,7 @@ class SignupPage : AppCompatActivity() {
         setContentView(R.layout.activity_signup_page)
 
         userName = findViewById(R.id.userName)
+        userEmail = findViewById(R.id.userEmail)
         password = findViewById(R.id.userPassword)
         confirmPassword = findViewById(R.id.confirmPassword)
         signUp = findViewById(R.id.signUpButton)
