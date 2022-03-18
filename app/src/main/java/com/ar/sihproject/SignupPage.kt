@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Patterns
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
@@ -24,6 +25,7 @@ class SignupPage : AppCompatActivity() {
     lateinit var confirmPassword : TextInputEditText
     lateinit var signUp : Button
     lateinit var userNameLayout : TextInputLayout
+    lateinit var userEmailLayout : TextInputLayout
     lateinit var passwordLayout : TextInputLayout
     lateinit var confirmPasswordLayout : TextInputLayout
     lateinit var progressBar: ProgressBar
@@ -33,12 +35,15 @@ class SignupPage : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup_page)
 
+
+        //ik userName and userEmail are reversed. Don't change them
         userName = findViewById(R.id.userName)
         userEmail = findViewById(R.id.userEmail)
         password = findViewById(R.id.userPassword)
         confirmPassword = findViewById(R.id.confirmPassword)
         signUp = findViewById(R.id.signUpButton)
         userNameLayout = findViewById(R.id.eventTitleCard)
+        userEmailLayout = findViewById(R.id.eventTitleCardEmail)
         passwordLayout = findViewById(R.id.passwordInputLayout)
         confirmPasswordLayout = findViewById(R.id.confirmPasswordInputLayout)
         progressBar = findViewById(R.id.progressBar)
@@ -51,6 +56,14 @@ class SignupPage : AppCompatActivity() {
 
         userNameLayout.setOnClickListener {
             userNameLayout.error = null
+        }
+
+        userEmail.setOnClickListener {
+            userEmailLayout.error = null
+        }
+
+        userEmailLayout.setOnClickListener {
+            userEmailLayout.error = null
         }
 
         password.setOnClickListener {
@@ -78,7 +91,7 @@ class SignupPage : AppCompatActivity() {
             if(checkFields) {
                 progressBar.visibility = View.VISIBLE
                 auth.createUserWithEmailAndPassword(
-                    userName.text.toString(),
+                    userEmail.text.toString(),
                     password.text.toString()
                 ).addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
@@ -112,6 +125,13 @@ class SignupPage : AppCompatActivity() {
             userName.requestFocus()
             return false
         }
+
+        if(!Patterns.EMAIL_ADDRESS.matcher(userEmail.text.toString()).matches()){
+            userEmailLayout.error = "Enter Valid Email Id"
+            userName.requestFocus()
+            return false
+        }
+
         if(password.length() == 0 || password.length() < 6){
             passwordLayout.error = "A Minimum Of 6 Characters Are Required"
             password.requestFocus()

@@ -10,13 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SIHProject">
         <activity
-<<<<<<< HEAD
             android:name=".AccountDetails"
-            android:exported="false" />
-        <activity
-=======
->>>>>>> a849e5684954259512a95ec67b028cc3eb1e9584
-            android:name=".ManagerAppUI"
             android:exported="false" />
         <activity
             android:name=".VisitorAppUI"
