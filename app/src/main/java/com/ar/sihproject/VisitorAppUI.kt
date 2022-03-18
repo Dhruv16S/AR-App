@@ -1,20 +1,29 @@
 package com.ar.sihproject
 
 
+import android.content.DialogInterface
+import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AlertDialog
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import com.hitomi.cmlibrary.CircleMenu
 
 class VisitorAppUI : AppCompatActivity() {
 
     lateinit var cmMain : CircleMenu
+    lateinit var layout : ConstraintLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_visitor_app_ui)
+
+        layout = findViewById(R.id.layout)
 
         val fragmentManager : FragmentManager = supportFragmentManager
         val fragmentTransaction : FragmentTransaction = fragmentManager.beginTransaction()
@@ -28,11 +37,16 @@ class VisitorAppUI : AppCompatActivity() {
         cmMain.setMainMenu(Color.parseColor("#000000"), R.drawable.ic_menu, R.drawable.ic_cancel)
 
         cmMain.addSubMenu(Color.parseColor("#F5DE61"), R.drawable.ic_home)
+        //dummy buttons
         cmMain.addSubMenu(Color.parseColor("#a0cbf1"), R.drawable.ic_info)
         cmMain.addSubMenu(Color.parseColor("#a0cbf1"), R.drawable.ic_info)
+        cmMain.addSubMenu(Color.parseColor("#a0cbf1"), R.drawable.ic_info)
+
+        cmMain.addSubMenu(Color.parseColor("#5033FE"), R.drawable.ic_logout)
         cmMain.addSubMenu(Color.parseColor("#F56161"), R.drawable.ic_favourite)
         cmMain.addSubMenu(Color.parseColor("#BBF561"), R.drawable.ic_contact)
         cmMain.addSubMenu(Color.parseColor("#a0cbf1"), R.drawable.ic_info)
+
 
 
         //adding click listeners to menu items
@@ -48,7 +62,7 @@ class VisitorAppUI : AppCompatActivity() {
                     fragmentTransactionMaps.commit()
                 }
 
-                3 -> {
+                5-> {
                     //Toast.makeText(this, "This is Favourites", Toast.LENGTH_SHORT).show()
                     val fragmentManagerFavourites : FragmentManager = supportFragmentManager
                     val fragmentTransactionFavourites : FragmentTransaction = fragmentManagerFavourites.beginTransaction()
@@ -58,7 +72,7 @@ class VisitorAppUI : AppCompatActivity() {
                     fragmentTransactionFavourites.commit()
                 }
 
-                4 -> {
+                6 -> {
                     //Toast.makeText(this, "This is Account", Toast.LENGTH_SHORT).show()
                     val fragmentManagerAccount : FragmentManager = supportFragmentManager
                     val fragmentTransactionAccount : FragmentTransaction = fragmentManagerAccount.beginTransaction()
@@ -68,7 +82,7 @@ class VisitorAppUI : AppCompatActivity() {
                     fragmentTransactionAccount.commit()
                 }
 
-                5 -> {
+                7 -> {
                     //Toast.makeText(this, "This is Scan and View", Toast.LENGTH_SHORT).show()
                     val fragmentManagerScan : FragmentManager = supportFragmentManager
                     val fragmentTransactionScan : FragmentTransaction = fragmentManagerScan.beginTransaction()
@@ -76,6 +90,19 @@ class VisitorAppUI : AppCompatActivity() {
                     fragmentTransactionScan.replace(R.id.frame, scanFragment)
                     fragmentTransactionScan.addToBackStack(null)
                     fragmentTransactionScan.commit()
+                }
+                4 -> {
+                    var alert = AlertDialog.Builder(this@VisitorAppUI)
+                    alert.setTitle("Sign Out?").setMessage("Do you want to Sign out ?").setIcon(R.drawable.prompt)
+                        .setCancelable(false).setNegativeButton("No", DialogInterface.OnClickListener { dialog, which ->
+                            dialog.cancel()
+                        })
+                        .setPositiveButton("Yes", DialogInterface.OnClickListener { dialog, which ->
+                            Firebase.auth.signOut()
+                            val intent = Intent(this@VisitorAppUI, MainActivity::class.java)
+                            startActivity(intent)
+                        })
+                    alert.create().show()
                 }
                 else->{
 

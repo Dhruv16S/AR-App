@@ -22,7 +22,7 @@
         app:boxStrokeWidth="1dp"
         app:endIconMode="clear_text"
         app:endIconTint="@color/black"
-        app:helperTextTextColor="@color/user_def_border"
+        app:helperTextTextColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:errorEnabled="true"
