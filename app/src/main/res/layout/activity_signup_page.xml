@@ -32,10 +32,41 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/convergence"
-            android:textColorHint="@color/black"
-            android:hint="Username or Email Address"
+            android:hint="Username"
             android:inputType="textPersonName"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"
+            android:textColorHint="@color/black" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/eventTitleCardEmail"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="330dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="280dp"
+        android:fontFamily="@font/convergence"
+        android:textColorHint="@color/black"
+        app:boxBackgroundColor="@color/user_def_outerFG"
+        app:boxStrokeColor="@color/user_def_border"
+        app:boxStrokeWidth="1dp"
+        app:endIconMode="clear_text"
+        app:helperTextTextColor="@color/user_def_border"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:errorEnabled="true"
+        app:hintTextColor="@color/black">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/userEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/convergence"
+            android:hint="Email Address"
+            android:inputType="textPersonName"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -44,7 +75,7 @@
         android:layout_width="330dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
-        android:layout_marginTop="280dp"
+        android:layout_marginTop="360dp"
         android:fontFamily="@font/convergence"
         android:textColorHint="@color/black"
         app:boxBackgroundColor="@color/user_def_outerFG"
@@ -75,7 +106,7 @@
         android:layout_width="330dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
-        android:layout_marginTop="360dp"
+        android:layout_marginTop="440dp"
         android:fontFamily="@font/convergence"
         android:textColorHint="@color/black"
         app:boxBackgroundColor="@color/user_def_outerFG"
@@ -119,14 +150,14 @@
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
-        android:layout_marginTop="440dp"
+        android:layout_marginTop="524dp"
         android:background="@drawable/submit_button"
         android:fontFamily="@font/convergence"
         android:text="Signup"
         android:textColor="@color/black"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/confirmPasswordInputLayout"
-        app:layout_constraintHorizontal_bias="0.284"
+        app:layout_constraintHorizontal_bias="0.292"
         app:layout_constraintStart_toStartOf="@+id/confirmPasswordInputLayout"
         app:layout_constraintTop_toTopOf="parent" />
 
