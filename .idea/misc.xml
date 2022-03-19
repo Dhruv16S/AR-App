@@ -20,10 +20,13 @@
         <entry key="..\:/Programming/Kotlin/SIHProject/app/src/main/res/layout/activity_signup_page.xml" value="0.264" />
         <entry key="..\:/Programming/Kotlin/SIHProject/app/src/main/res/layout/activity_visitor_app_ui.xml" value="0.264" />
         <entry key="..\:/Programming/Kotlin/SIHProject/app/src/main/res/layout/fragment_account.xml" value="0.25" />
+        <entry key="..\:/Programming/Kotlin/SIHProject/app/src/main/res/layout/fragment_code.xml" value="0.25" />
         <entry key="..\:/Programming/Kotlin/SIHProject/app/src/main/res/layout/fragment_favourites.xml" value="0.25" />
+        <entry key="..\:/Programming/Kotlin/SIHProject/app/src/main/res/layout/fragment_image.xml" value="0.25" />
         <entry key="..\:/Programming/Kotlin/SIHProject/app/src/main/res/layout/fragment_maps.xml" value="0.25" />
         <entry key="..\:/Programming/Kotlin/SIHProject/app/src/main/res/layout/fragment_register.xml" value="0.25" />
         <entry key="..\:/Programming/Kotlin/SIHProject/app/src/main/res/layout/fragment_scan_and_view.xml" value="0.264" />
+        <entry key="..\:/Programming/Kotlin/SIHProject/app/src/main/res/layout/fragment_video.xml" value="0.25" />
       </map>
     </option>
   </component>
