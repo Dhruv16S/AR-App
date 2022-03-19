@@ -18,6 +18,7 @@ import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthUserCollisionException
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
 class SignupPage : AppCompatActivity() {
@@ -34,6 +35,7 @@ class SignupPage : AppCompatActivity() {
     lateinit var progressBar: ProgressBar
     lateinit var checkBox: CheckBox
     private lateinit var auth: FirebaseAuth
+    val db = Firebase.firestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -85,14 +87,12 @@ class SignupPage : AppCompatActivity() {
             confirmPasswordLayout.error = null
         }
 
-        var status : String = "Visitor"
+        var status = "Visitor"
 
         checkBox.setOnClickListener {
             if(checkBox.isChecked)
                 status = "Admin"
         }
-
-
 
         signUp.setOnClickListener { v ->
             val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as? InputMethodManager
@@ -107,12 +107,39 @@ class SignupPage : AppCompatActivity() {
                     password.text.toString()
                 ).addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
-                        Log.d("Message","$status")
+
+                        val userUID = auth.currentUser?.uid
+
+                        val user = hashMapOf(
+                            "User UID" to userUID,
+                            "Username" to userName.text.toString(),
+                            "Email ID" to userEmail.text.toString(),
+                            "Status" to status,
+                            "Password" to password.text.toString()
+                        )
+
+                        db.collection("users")
+                            .add(user)
+                            .addOnSuccessListener { documentReference ->
+                                Log.d("Message", "DocumentSnapshot added with ID: ${documentReference.id}")
+                            }
+                            .addOnFailureListener { e ->
+                                Log.w("Message", "Error adding document", e)
+                            }
+
                         progressBar.visibility = View.GONE
                         Toast.makeText(baseContext, "Authentication Successful.", Toast.LENGTH_SHORT).show()
 
-                        val intent = Intent(this@SignupPage, VisitorAppUI :: class.java)
-                        startActivity(intent)
+                        if(status == "Visitor"){
+                            val intent = Intent(this@SignupPage, VisitorAppUI :: class.java)
+                            startActivity(intent)
+                        }
+
+                        else if(status == "Admin"){
+                            val intent = Intent(this@SignupPage, AdminAppUI :: class.java)
+                            startActivity(intent)
+                        }
+
                     }
                     else {
                         progressBar.visibility = View.GONE

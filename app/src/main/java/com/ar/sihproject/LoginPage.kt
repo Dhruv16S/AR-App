@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.util.Patterns
 import android.view.View
 import android.view.inputmethod.InputMethodManager
@@ -15,6 +16,7 @@ import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
 class LoginPage : AppCompatActivity() {
@@ -27,6 +29,7 @@ class LoginPage : AppCompatActivity() {
     lateinit var passwordInputLayout : TextInputLayout
     lateinit var progressBar : ProgressBar
     private lateinit var auth: FirebaseAuth
+    val db = Firebase.firestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -73,9 +76,26 @@ class LoginPage : AppCompatActivity() {
                 auth.signInWithEmailAndPassword(userName.text.toString(), userPassword.text.toString())
                     .addOnCompleteListener(this){task->
                         if(task.isSuccessful){
-                            progressBar.visibility = View.GONE
-                            val intent = Intent(this@LoginPage, VisitorAppUI :: class.java)
-                            startActivity(intent)
+                            val userUID = auth.currentUser?.uid
+                            db.collection("users")
+                                .get()
+                                .addOnSuccessListener { result ->
+                                    for (document in result) {
+                                        //Log.d("Message", "${document.id} => ${document.data}")
+                                        if(document.data["User UID"] == userUID){
+                                            if(document.data["Status"] == "Visitor"){
+                                                progressBar.visibility = View.GONE
+                                                val intent = Intent(this@LoginPage, VisitorAppUI :: class.java)
+                                                startActivity(intent)
+                                            }
+                                            else if(document.data["Status"] == "Admin"){
+                                                progressBar.visibility = View.GONE
+                                                val intent = Intent(this@LoginPage, AdminAppUI :: class.java)
+                                                startActivity(intent)
+                                            }
+                                        }
+                                    }
+                                }
                         }
                         else{
                             progressBar.visibility = View.GONE

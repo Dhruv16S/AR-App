@@ -13,6 +13,7 @@
         <entry key="..\:/Programming/Kotlin/SIHProject/app/src/main/res/drawable/ic_info.xml" value="0.169" />
         <entry key="..\:/Programming/Kotlin/SIHProject/app/src/main/res/drawable/ic_menu.xml" value="0.169" />
         <entry key="..\:/Programming/Kotlin/SIHProject/app/src/main/res/drawable/submit_button.xml" value="0.161" />
+        <entry key="..\:/Programming/Kotlin/SIHProject/app/src/main/res/layout/activity_admin_app_ui.xml" value="0.25" />
         <entry key="..\:/Programming/Kotlin/SIHProject/app/src/main/res/layout/activity_login_page.xml" value="0.1" />
         <entry key="..\:/Programming/Kotlin/SIHProject/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Programming/Kotlin/SIHProject/app/src/main/res/layout/activity_manager_app_ui.xml" value="0.264" />
@@ -21,6 +22,7 @@
         <entry key="..\:/Programming/Kotlin/SIHProject/app/src/main/res/layout/fragment_account.xml" value="0.25" />
         <entry key="..\:/Programming/Kotlin/SIHProject/app/src/main/res/layout/fragment_favourites.xml" value="0.25" />
         <entry key="..\:/Programming/Kotlin/SIHProject/app/src/main/res/layout/fragment_maps.xml" value="0.25" />
+        <entry key="..\:/Programming/Kotlin/SIHProject/app/src/main/res/layout/fragment_register.xml" value="0.25" />
         <entry key="..\:/Programming/Kotlin/SIHProject/app/src/main/res/layout/fragment_scan_and_view.xml" value="0.264" />
       </map>
     </option>
