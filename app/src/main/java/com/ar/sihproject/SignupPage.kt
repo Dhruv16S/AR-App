@@ -4,10 +4,13 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.telephony.mbms.StreamingServiceInfo
+import android.util.Log
 import android.util.Patterns
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
+import android.widget.CheckBox
 import android.widget.ProgressBar
 import android.widget.Toast
 import com.google.android.material.textfield.TextInputEditText
@@ -29,14 +32,13 @@ class SignupPage : AppCompatActivity() {
     lateinit var passwordLayout : TextInputLayout
     lateinit var confirmPasswordLayout : TextInputLayout
     lateinit var progressBar: ProgressBar
+    lateinit var checkBox: CheckBox
     private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup_page)
 
-
-        //ik userName and userEmail are reversed. Don't change them
         userName = findViewById(R.id.userName)
         userEmail = findViewById(R.id.userEmail)
         password = findViewById(R.id.userPassword)
@@ -47,6 +49,7 @@ class SignupPage : AppCompatActivity() {
         passwordLayout = findViewById(R.id.passwordInputLayout)
         confirmPasswordLayout = findViewById(R.id.confirmPasswordInputLayout)
         progressBar = findViewById(R.id.progressBar)
+        checkBox = findViewById(R.id.checkBox)
         auth = Firebase.auth
 
 
@@ -82,6 +85,15 @@ class SignupPage : AppCompatActivity() {
             confirmPasswordLayout.error = null
         }
 
+        var status : String = "Visitor"
+
+        checkBox.setOnClickListener {
+            if(checkBox.isChecked)
+                status = "Admin"
+        }
+
+
+
         signUp.setOnClickListener { v ->
             val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as? InputMethodManager
             imm?.hideSoftInputFromWindow(v.windowToken, 0)
@@ -95,6 +107,7 @@ class SignupPage : AppCompatActivity() {
                     password.text.toString()
                 ).addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
+                        Log.d("Message","$status")
                         progressBar.visibility = View.GONE
                         Toast.makeText(baseContext, "Authentication Successful.", Toast.LENGTH_SHORT).show()
 
@@ -144,5 +157,6 @@ class SignupPage : AppCompatActivity() {
         }
         return true
     }
+
 
 }
