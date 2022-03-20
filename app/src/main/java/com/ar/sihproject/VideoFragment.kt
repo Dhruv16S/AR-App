@@ -57,10 +57,10 @@ class VideoFragment : Fragment() {
 
     private fun uploadImage() {
 
-        val storageReferenceAug = FirebaseStorage.getInstance().getReference("AugVideos/${imageName.text.toString() + "_aug"}")
+        val storageReferenceAug = FirebaseStorage.getInstance().getReference("AugVideos/${monumentName.text.toString() + "_" + imageName.text.toString() + "_aug"}")
         storageReferenceAug.putFile(videoURIAug)
 
-        val storageReference = FirebaseStorage.getInstance().getReference("images/${imageName.text.toString()}")
+        val storageReference = FirebaseStorage.getInstance().getReference("images/${monumentName.text.toString() + "_" + imageName.text.toString()}")
         storageReference.putFile(imageURI).addOnSuccessListener {
 
             val mon = hashMapOf(

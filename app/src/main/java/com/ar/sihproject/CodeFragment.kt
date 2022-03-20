@@ -50,7 +50,7 @@ class CodeFragment : Fragment() {
 
     private fun uploadImage() {
 
-        val storageReference = FirebaseStorage.getInstance().getReference("images/${imageName.text.toString()}")
+        val storageReference = FirebaseStorage.getInstance().getReference("images/${monumentName.text.toString() + "_" + imageName.text.toString()}")
         storageReference.putFile(imageURI).addOnSuccessListener {
 
             val mon = hashMapOf(
