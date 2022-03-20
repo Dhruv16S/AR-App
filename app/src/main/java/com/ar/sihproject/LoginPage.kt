@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.util.Patterns
 import android.view.View
 import android.view.inputmethod.InputMethodManager
@@ -35,7 +34,7 @@ class LoginPage : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login_page)
 
-        userName = findViewById(R.id.userName)
+        userName = findViewById(R.id.imageName)
         userPassword = findViewById(R.id.userPassword)
         loginButton = findViewById(R.id.signUpButton)
         gotoSignUp = findViewById(R.id.gotoSignUp)

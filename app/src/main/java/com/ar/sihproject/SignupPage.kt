@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.telephony.mbms.StreamingServiceInfo
 import android.util.Log
 import android.util.Patterns
 import android.view.View
@@ -41,7 +40,7 @@ class SignupPage : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup_page)
 
-        userName = findViewById(R.id.userName)
+        userName = findViewById(R.id.imageName)
         userEmail = findViewById(R.id.userEmail)
         password = findViewById(R.id.userPassword)
         confirmPassword = findViewById(R.id.confirmPassword)

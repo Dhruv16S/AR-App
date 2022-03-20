@@ -29,7 +29,7 @@
         app:hintTextColor="@color/black">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/userName"
+            android:id="@+id/imageName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/convergence"
