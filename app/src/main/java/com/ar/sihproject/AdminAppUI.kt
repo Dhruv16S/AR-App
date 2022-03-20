@@ -1,6 +1,5 @@
 package com.ar.sihproject
 
-
 import android.content.DialogInterface
 import android.content.Intent
 import android.graphics.Color
@@ -14,14 +13,14 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.hitomi.cmlibrary.CircleMenu
 
-class VisitorAppUI : AppCompatActivity() {
+class AdminAppUI : AppCompatActivity() {
 
     lateinit var cmMain : CircleMenu
     lateinit var layout : ConstraintLayout
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_visitor_app_ui)
+        setContentView(R.layout.activity_admin_app_ui)
 
         layout = findViewById(R.id.layout)
 
@@ -45,7 +44,7 @@ class VisitorAppUI : AppCompatActivity() {
         cmMain.addSubMenu(Color.parseColor("#5033FE"), R.drawable.ic_logout)
         cmMain.addSubMenu(Color.parseColor("#F56161"), R.drawable.ic_favourite)
         cmMain.addSubMenu(Color.parseColor("#BBF561"), R.drawable.ic_contact)
-        cmMain.addSubMenu(Color.parseColor("#a0cbf1"), R.drawable.ic_info)
+        cmMain.addSubMenu(Color.parseColor("#a0cbf1"), R.drawable.ic_register)
 
 
 
@@ -84,22 +83,22 @@ class VisitorAppUI : AppCompatActivity() {
 
                 7 -> {
                     //Toast.makeText(this, "This is Scan and View", Toast.LENGTH_SHORT).show()
-                    val fragmentManagerScan : FragmentManager = supportFragmentManager
-                    val fragmentTransactionScan : FragmentTransaction = fragmentManagerScan.beginTransaction()
-                    val scanFragment = ScanAndView()
-                    fragmentTransactionScan.replace(R.id.frame, scanFragment)
-                    fragmentTransactionScan.addToBackStack(null)
-                    fragmentTransactionScan.commit()
+                    val fragmentManagerRegister : FragmentManager = supportFragmentManager
+                    val fragmentTransactionRegister : FragmentTransaction = fragmentManagerRegister.beginTransaction()
+                    val registerFragment = Register()
+                    fragmentTransactionRegister.replace(R.id.frame, registerFragment)
+                    fragmentTransactionRegister.addToBackStack(null)
+                    fragmentTransactionRegister.commit()
                 }
                 4 -> {
-                    var alert = AlertDialog.Builder(this@VisitorAppUI)
+                    var alert = AlertDialog.Builder(this@AdminAppUI)
                     alert.setTitle("Sign Out?").setMessage("Do you want to Sign out ?").setIcon(R.drawable.prompt)
                         .setCancelable(false).setNegativeButton("No", DialogInterface.OnClickListener { dialog, which ->
                             dialog.cancel()
                         })
                         .setPositiveButton("Yes", DialogInterface.OnClickListener { dialog, which ->
                             Firebase.auth.signOut()
-                            val intent = Intent(this@VisitorAppUI, MainActivity::class.java)
+                            val intent = Intent(this@AdminAppUI, MainActivity::class.java)
                             startActivity(intent)
                         })
                     alert.create().show()

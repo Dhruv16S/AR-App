@@ -3,9 +3,23 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+<<<<<<< HEAD
+=======
+        <entry key="..\:/Programming/Kotlin/SIHProject/app/src/main/res/drawable/circle_tile.xml" value="0.1" />
+        <entry key="..\:/Programming/Kotlin/SIHProject/app/src/main/res/drawable/ic_baseline_location_on_24.xml" value="0.169" />
+        <entry key="..\:/Programming/Kotlin/SIHProject/app/src/main/res/drawable/ic_baseline_qr_code_scanner_24.xml" value="0.169" />
+        <entry key="..\:/Programming/Kotlin/SIHProject/app/src/main/res/drawable/ic_cancel.xml" value="0.169" />
+        <entry key="..\:/Programming/Kotlin/SIHProject/app/src/main/res/drawable/ic_contact.xml" value="0.169" />
+        <entry key="..\:/Programming/Kotlin/SIHProject/app/src/main/res/drawable/ic_favourite.xml" value="0.169" />
+        <entry key="..\:/Programming/Kotlin/SIHProject/app/src/main/res/drawable/ic_home.xml" value="0.169" />
+        <entry key="..\:/Programming/Kotlin/SIHProject/app/src/main/res/drawable/ic_info.xml" value="0.169" />
+        <entry key="..\:/Programming/Kotlin/SIHProject/app/src/main/res/drawable/ic_menu.xml" value="0.169" />
+>>>>>>> 573f629d5b34e2e0e5d7c1e86632a3bb23595498
         <entry key="..\:/Programming/Kotlin/SIHProject/app/src/main/res/drawable/submit_button.xml" value="0.161" />
-        <entry key="..\:/Programming/Kotlin/SIHProject/app/src/main/res/layout/activity_login_page.xml" value="0.25" />
+        <entry key="..\:/Programming/Kotlin/SIHProject/app/src/main/res/layout/activity_admin_app_ui.xml" value="0.25" />
+        <entry key="..\:/Programming/Kotlin/SIHProject/app/src/main/res/layout/activity_login_page.xml" value="0.1" />
         <entry key="..\:/Programming/Kotlin/SIHProject/app/src/main/res/layout/activity_main.xml" value="0.1" />
+<<<<<<< HEAD
         <entry key="..\:/Programming/Kotlin/SIHProject/app/src/main/res/layout/activity_signup_page.xml" value="0.1" />
         <entry key="..\:/Programming/Kotlin/SIHProject/app/src/main/res/layout/activity_visitor_app_ui.xml" value="0.25" />
         <entry key="app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.1785" />
@@ -14,6 +28,19 @@
         <entry key="app/src/main/res/layout/activity_login_page.xml" value="0.22056159420289856" />
         <entry key="app/src/main/res/layout/activity_manager_app_ui.xml" value="0.22056159420289856" />
         <entry key="app/src/main/res/layout/activity_signup_page.xml" value="0.2098697607068048" />
+=======
+        <entry key="..\:/Programming/Kotlin/SIHProject/app/src/main/res/layout/activity_manager_app_ui.xml" value="0.264" />
+        <entry key="..\:/Programming/Kotlin/SIHProject/app/src/main/res/layout/activity_signup_page.xml" value="0.264" />
+        <entry key="..\:/Programming/Kotlin/SIHProject/app/src/main/res/layout/activity_visitor_app_ui.xml" value="0.264" />
+        <entry key="..\:/Programming/Kotlin/SIHProject/app/src/main/res/layout/fragment_account.xml" value="0.25" />
+        <entry key="..\:/Programming/Kotlin/SIHProject/app/src/main/res/layout/fragment_code.xml" value="0.25" />
+        <entry key="..\:/Programming/Kotlin/SIHProject/app/src/main/res/layout/fragment_favourites.xml" value="0.25" />
+        <entry key="..\:/Programming/Kotlin/SIHProject/app/src/main/res/layout/fragment_image.xml" value="0.25" />
+        <entry key="..\:/Programming/Kotlin/SIHProject/app/src/main/res/layout/fragment_maps.xml" value="0.25" />
+        <entry key="..\:/Programming/Kotlin/SIHProject/app/src/main/res/layout/fragment_register.xml" value="0.25" />
+        <entry key="..\:/Programming/Kotlin/SIHProject/app/src/main/res/layout/fragment_scan_and_view.xml" value="0.264" />
+        <entry key="..\:/Programming/Kotlin/SIHProject/app/src/main/res/layout/fragment_video.xml" value="0.25" />
+>>>>>>> 573f629d5b34e2e0e5d7c1e86632a3bb23595498
       </map>
     </option>
   </component>

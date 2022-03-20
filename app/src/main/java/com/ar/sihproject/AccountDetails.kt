@@ -33,6 +33,5 @@ class AccountDetails : AppCompatActivity() {
         passwordIcon = findViewById(R.id.passwordIcon)
         userAvatar = findViewById(R.id.UserAvatarImageView)
 
-
     }
 }
