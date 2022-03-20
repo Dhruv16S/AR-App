@@ -16,7 +16,7 @@
             android:layout_height="wrap_content">
 
             <android.widget.Button
-                android:id="@+id/register"
+                android:id="@+id/view"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="128dp"
@@ -49,7 +49,7 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/imageName"
+                    android:id="@+id/code"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/convergence"

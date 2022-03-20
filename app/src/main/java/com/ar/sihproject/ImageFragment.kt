@@ -1,25 +1,22 @@
 package com.ar.sihproject
 
 import android.app.Activity
-import android.app.Activity.RESULT_OK
-import android.app.ProgressDialog
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.ktx.storage
-import java.net.URI
+
 
 class ImageFragment : Fragment() {
     var imgSelected : Boolean = true
@@ -42,8 +39,8 @@ class ImageFragment : Fragment() {
 
         chooseImage = v.findViewById(R.id.imageView)
         chooseAugImg = v.findViewById(R.id.imageView2)
-        register = v.findViewById(R.id.register)
-        imageName = v.findViewById(R.id.imageName)
+        register = v.findViewById(R.id.view)
+        imageName = v.findViewById(R.id.code)
         monumentName = v.findViewById(R.id.monumentName)
 
         chooseImage.setOnClickListener {
@@ -67,12 +64,17 @@ class ImageFragment : Fragment() {
         val storageReference = FirebaseStorage.getInstance().getReference("images/${monumentName.text.toString() + "_" + imageName.text.toString()}")
         storageReference.putFile(imageURI).addOnSuccessListener {
 
-            val mon = hashMapOf(
-                "Monument Name" to monumentName.text.toString(),
-                "Code" to imageName.text.toString()
-            )
-            db.collection("monuments").add(mon)
+//            val mon = hashMapOf(
+//                "Monument Name" to monumentName.text.toString(),
+//                //"Code" to imageName.text.toString()
+//            )
 
+            val code = hashMapOf(
+                "Key" to monumentName.text.toString() + "_" + imageName.text.toString()
+            )
+
+            //db.collection("monuments").add(mon)
+            db.collection("monuments").document(monumentName.text.toString()).collection("Image Code").add(code)
 
             chooseImage.setImageURI(null)
             chooseImage.setBackgroundResource(R.drawable.reference_image_aug_img)

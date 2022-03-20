@@ -40,7 +40,7 @@ class SignupPage : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup_page)
 
-        userName = findViewById(R.id.imageName)
+        userName = findViewById(R.id.code)
         userEmail = findViewById(R.id.userEmail)
         password = findViewById(R.id.userPassword)
         confirmPassword = findViewById(R.id.confirmPassword)

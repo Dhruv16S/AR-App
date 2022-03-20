@@ -34,8 +34,8 @@ class CodeFragment : Fragment() {
         val v : View = inflater.inflate(R.layout.fragment_code, container, false)
 
         chooseImage = v.findViewById(R.id.imageView)
-        register = v.findViewById(R.id.register)
-        imageName = v.findViewById(R.id.imageName)
+        register = v.findViewById(R.id.view)
+        imageName = v.findViewById(R.id.code)
         monumentName = v.findViewById(R.id.monumentName)
 
         chooseImage.setOnClickListener {
@@ -53,11 +53,17 @@ class CodeFragment : Fragment() {
         val storageReference = FirebaseStorage.getInstance().getReference("images/${monumentName.text.toString() + "_" + imageName.text.toString()}")
         storageReference.putFile(imageURI).addOnSuccessListener {
 
-            val mon = hashMapOf(
-                "Monument Name" to monumentName.text.toString(),
-                "Code" to imageName.text.toString()
+//            val mon = hashMapOf(
+//                "Monument Name" to monumentName.text.toString(),
+//                "Code" to imageName.text.toString()
+//            )
+
+            val code = hashMapOf(
+                "Key" to monumentName.text.toString() + "_" + imageName.text.toString()
             )
-            db.collection("monuments").add(mon)
+
+            //db.collection("monuments").add(mon)
+            db.collection("monuments").document(monumentName.text.toString()).collection("Code").add(code)
 
             chooseImage.setImageURI(null)
             chooseImage.setBackgroundResource(R.drawable.reference_image_code)

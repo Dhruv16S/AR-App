@@ -34,7 +34,7 @@ class LoginPage : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login_page)
 
-        userName = findViewById(R.id.imageName)
+        userName = findViewById(R.id.code)
         userPassword = findViewById(R.id.userPassword)
         loginButton = findViewById(R.id.signUpButton)
         gotoSignUp = findViewById(R.id.gotoSignUp)
